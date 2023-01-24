@@ -1,0 +1,49 @@
+.Header{
+    background-color: #3689C8;
+    display: block;
+    height: 65px;
+}
+
+.Title{
+    font-weight: bold;
+    font-size: 36px;
+    color: white;
+    text-align: center;
+}
+
+.Addbutton{
+    
+    height: 43px;
+    width: 122px;
+    background-color: #41DF27;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 10px;
+    
+    margin-top: 10px;
+}
+
+.All{
+    text-align: center;
+}
+
+.InputTo{
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 512px;
+}
+
+.AddNewTask{
+    margin-top: 10px;
+    color: #625858;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.InputToDeadline{
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 100px;
+}

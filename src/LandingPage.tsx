@@ -1,5 +1,7 @@
 import openlab from "./assets/openlab.svg";
 import { useAuth } from "./auth/Auth";
+import "./App.css";
+import TodoList from "./ToDoList";
 
 export default function LandingPage(): JSX.Element {
 
@@ -10,9 +12,16 @@ export default function LandingPage(): JSX.Element {
     }
 
     return (
-        <div className="h-full w-full flex justify-center items-center flex-col">
-            <img src={openlab} alt="Logo OpenLab" className="w-80"/>
-            <button onClick={handleLogOut}>Odhlásiť sa</button>
+        <div>
+         <div className="Header">
+         <h1 className="Title">To Do List</h1> 
+           
+        </div>   
+        <TodoList />
         </div>
+        
     )
 }
+
+
+//<button onClick={handleLogOut}>Odhlásiť sa</button>

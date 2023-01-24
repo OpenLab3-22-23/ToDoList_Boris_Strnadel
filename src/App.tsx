@@ -2,6 +2,7 @@ import { Navigate } from "react-router-dom";
 import "./App.css";
 import { useAuth } from "./auth/Auth";
 import LandingPage from "./LandingPage";
+import TodoList from "./ToDoList";
 
 function App() {
   const { session } = useAuth();
