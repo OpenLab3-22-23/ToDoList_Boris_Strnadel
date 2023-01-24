@@ -3,21 +3,27 @@ import React, { useState } from 'react';
 interface Todo {
   text: string;
   completed: boolean;
+  deadline: string;
 }
 
 const TodoList: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [newTodo, setNewTodo] = useState('');
+  const [newDeadline, setNewDeadline] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!newTodo) return;
-    setTodos([...todos, { text: newTodo, completed: false }]);
+    setTodos([...todos, { text: newTodo, completed: false,  deadline: newDeadline}]);
     setNewTodo('');
+    setNewDeadline('');
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewTodo(e.target.value);
+  };
+  const handleDeadlineChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewDeadline(e.target.value);
   };
 
   const handleToggle = (index: number) => {
@@ -41,7 +47,9 @@ const TodoList: React.FC = () => {
             <input
           className='InputToDeadline'
           type="text"
-          placeholder="Deadline..."
+          placeholder="DD/MM/YYYY"
+          onChange={handleDeadlineChange}
+          value={newDeadline}
         />
         </div>
         <div>
@@ -60,6 +68,7 @@ const TodoList: React.FC = () => {
             <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
               {todo.text}
             </span>
+            <span className='Deadlinetext'>Deadline: {todo.deadline}</span>
           </li>
         ))}
       </ul>

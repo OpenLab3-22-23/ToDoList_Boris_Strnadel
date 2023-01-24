@@ -45,5 +45,10 @@
 .InputToDeadline{
     margin-top: 10px;
     border-radius: 10px;
-    width: 100px;
+    width: autopx;
+}
+
+.Deadlinetext{
+    color: red;
+    margin-left: 10px;
 }
