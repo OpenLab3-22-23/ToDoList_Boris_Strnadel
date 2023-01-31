@@ -14,11 +14,18 @@ export default function LandingPage(): JSX.Element {
     return (
         <div>
          <div className="Header">
-         <h1 className="Title">To Do List</h1> 
-           
+         <h1 className="Title">To Do List</h1>
+         <div className="wrapper">
+         <button className="logout" onClick={handleLogOut}>Odhlásiť sa</button>
+         </div>
         </div>   
+
         <TodoList />
         </div>
+        
+        
+        
+
         
     )
 }

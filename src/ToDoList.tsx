@@ -65,7 +65,7 @@ const TodoList: React.FC = () => {
               checked={todo.completed}
               onChange={() => handleToggle(index)}
             />
-            <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+            <span className='TodoText'>
               {todo.text}
             </span>
             <span className='Deadlinetext'>Deadline: {todo.deadline}</span>

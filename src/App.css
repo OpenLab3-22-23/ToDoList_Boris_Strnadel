@@ -51,4 +51,24 @@
 .Deadlinetext{
     color: red;
     margin-left: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.logout{
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    
+    
+}
+
+.wrapper{
+    text-align: right;
+}
+
+.TodoText{
+    font-size: 18px;
+    margin-left: 10px;
+    font-weight: 600;
 }
