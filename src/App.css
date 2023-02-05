@@ -72,3 +72,21 @@
     margin-left: 10px;
     font-weight: 600;
 }
+
+.delbutt{
+    
+    
+    background-color: #625858;
+    color: white;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    font-size: 18px;
+    padding: 2px;
+    margin-left: 10px;
+    
+    margin-top: 10px;
+    
+    
+}

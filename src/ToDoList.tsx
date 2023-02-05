@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 interface Todo {
+  id: number;
   text: string;
   completed: boolean;
   deadline: string;
@@ -14,7 +15,7 @@ const TodoList: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!newTodo) return;
-    setTodos([...todos, { text: newTodo, completed: false,  deadline: newDeadline}]);
+    setTodos([...todos, { text: newTodo, completed: false, id: todos.length +1 ,deadline: newDeadline}]);
     setNewTodo('');
     setNewDeadline('');
   };
@@ -30,6 +31,10 @@ const TodoList: React.FC = () => {
     const newTodos = [...todos];
     newTodos[index].completed = !newTodos[index].completed;
     setTodos(newTodos);
+  };
+
+  const deleteTodo = (id: number) => {
+    setTodos(todos.filter(todo => todo.id !== id));
   };
 
   return (
@@ -69,6 +74,7 @@ const TodoList: React.FC = () => {
               {todo.text}
             </span>
             <span className='Deadlinetext'>Deadline: {todo.deadline}</span>
+            <button className='delbutt' onClick={() => deleteTodo(todo.id)}>X</button>
           </li>
         ))}
       </ul>
