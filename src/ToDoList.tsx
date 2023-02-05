@@ -12,6 +12,27 @@ const TodoList: React.FC = () => {
   const [newTodo, setNewTodo] = useState('');
   const [newDeadline, setNewDeadline] = useState('');
 
+
+  const getTimeRemaining = (deadline: string) => {
+    const now = new Date();
+    const deadlineDate = new Date(deadline);
+    const timeDifference = deadlineDate.getTime() - now.getTime();
+  
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+  
+    return {
+      total: timeDifference,
+      days: days,
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds
+    };
+  };
+
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!newTodo) return;
@@ -36,6 +57,9 @@ const TodoList: React.FC = () => {
   const deleteTodo = (id: number) => {
     setTodos(todos.filter(todo => todo.id !== id));
   };
+
+
+
 
   return (
     <div className='All'>
@@ -73,7 +97,7 @@ const TodoList: React.FC = () => {
             <span className='TodoText'>
               {todo.text}
             </span>
-            <span className='Deadlinetext'>Deadline: {todo.deadline}</span>
+            <span className='Deadlinetext'>Time Remaining: {getTimeRemaining(todo.deadline).days} days, {getTimeRemaining(todo.deadline).hours} hours, {getTimeRemaining(todo.deadline).minutes} minutes, {getTimeRemaining(todo.deadline).seconds} seconds</span>
             <button className='delbutt' onClick={() => deleteTodo(todo.id)}>X</button>
           </li>
         ))}
