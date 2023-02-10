@@ -88,17 +88,20 @@ const TodoList: React.FC = () => {
       </form>
       <ul>
         {todos.map((todo, index) => (
-          <li key={index}>
+          <li className='liwrap' key={index}>
+            <div className='wrap'>
             <input
+              name='checkbox'
               type="checkbox"
               checked={todo.completed}
               onChange={() => handleToggle(index)}
             />
-            <span className='TodoText'>
-              {todo.text}
+            <span className='TodoText'> 
+              {todo.text} :
             </span>
-            <span className='Deadlinetext'>Time Remaining: {getTimeRemaining(todo.deadline).days} days, {getTimeRemaining(todo.deadline).hours} hours, {getTimeRemaining(todo.deadline).minutes} minutes, {getTimeRemaining(todo.deadline).seconds} seconds</span>
+            <span className='Deadlinetext'>{getTimeRemaining(todo.deadline).days} days, {getTimeRemaining(todo.deadline).hours} hours, {getTimeRemaining(todo.deadline).minutes} minutes</span>
             <button className='delbutt' onClick={() => deleteTodo(todo.id)}>X</button>
+            </div>
           </li>
         ))}
       </ul>
