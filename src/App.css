@@ -9,7 +9,7 @@
     font-size: 36px;
     color: white;
     text-align: center;
-    display: block;
+    display: inline-block;
     
 }
 
@@ -61,12 +61,20 @@
     margin: 10px;
     font-size: 20px;
     font-weight: bold;
+    background-color: rgb(204, 11, 11);
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    position: fixed;
+   bottom: 20px;
+   right: 20px;
+
     
     
 }
 
 .wrapper{
-    text-align: right;
+    text-align: center;
 }
 
 .TodoText{
@@ -138,6 +146,8 @@ input[type="checkbox"] {
 
   
 .dropdown{
-    display: block;
+    
+    text-align: left;
     
 }
+

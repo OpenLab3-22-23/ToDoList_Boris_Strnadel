@@ -2,7 +2,7 @@ import openlab from "./assets/openlab.svg";
 import { useAuth } from "./auth/Auth";
 import "./App.css";
 import TodoList from "./ToDoList";
-import Dropdown from "./Dropdownmenu";
+
 
 export default function LandingPage(): JSX.Element {
 
@@ -15,16 +15,13 @@ export default function LandingPage(): JSX.Element {
     return (
         <div>
          <div className="Header">
-        
-         <h1 className="Title">To Do List</h1>
-         <Dropdown />
          <div className="wrapper">
-         
-         </div>
-        </div>   
-        
+         <h1 className="Title">To Do List</h1>
+         </div>  
+        </div>         
         <TodoList />
-        
+
+        <button className="logout" onClick={handleLogOut}>Odhlásiť sa</button>
         </div>
         
         
