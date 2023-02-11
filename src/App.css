@@ -9,6 +9,8 @@
     font-size: 36px;
     color: white;
     text-align: center;
+    display: block;
+    
 }
 
 .Addbutton{
@@ -135,3 +137,7 @@ input[type="checkbox"] {
 
 
   
+.dropdown{
+    display: block;
+    
+}
