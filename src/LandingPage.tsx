@@ -2,6 +2,7 @@ import openlab from "./assets/openlab.svg";
 import { useAuth } from "./auth/Auth";
 import "./App.css";
 import TodoList from "./ToDoList";
+import OptionsPage from "./Options";
 
 
 export default function LandingPage(): JSX.Element {
@@ -20,8 +21,9 @@ export default function LandingPage(): JSX.Element {
          </div>  
         </div>         
         <TodoList />
-
+        
         <button className="logout" onClick={handleLogOut}>Odhlásiť sa</button>
+        <button className="options"  >Options</button>
         </div>
         
         

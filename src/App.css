@@ -151,3 +151,15 @@ input[type="checkbox"] {
     
 }
 
+.options{
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color:#3689C8;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    position: fixed;
+   bottom: 20px;
+   left: 20px;
+}
