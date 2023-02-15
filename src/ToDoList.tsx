@@ -16,9 +16,14 @@ const TodoList: React.FC = () => {
 
   const getTimeRemaining = (deadline: string) => {
     const now = new Date();
-    const deadlineDate = new Date(deadline);
+    const deadlineArray = deadline.split("/");
+    const deadlineDate = new Date(
+      parseInt(deadlineArray[2]),
+      parseInt(deadlineArray[1]) - 1,
+      parseInt(deadlineArray[0])
+    );
     const timeDifference = deadlineDate.getTime() - now.getTime();
-  
+
     const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
