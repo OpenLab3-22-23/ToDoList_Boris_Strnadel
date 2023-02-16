@@ -4,11 +4,16 @@ import "./App.css";
 import TodoList from "./ToDoList";
 import OptionsPage from "./Options";
 import Refresher from "./refresher";
+import {  Link } from 'react-router-dom';
+import React, { useState } from 'react';
+
 
 export default function LandingPage(): JSX.Element {
 
     const {signOut} = useAuth()
+    const [bgColor, setBgColor] = useState('white');
 
+    
     function handleLogOut(): void {
         signOut();
     }
@@ -23,7 +28,9 @@ export default function LandingPage(): JSX.Element {
         <Refresher/>
         
         <button className="logout" onClick={handleLogOut}>Odhlásiť sa</button>
-        <button className="options"  >Options</button>
+        <button className="options"  ><Link to='/options'>Options</Link></button>
+        
+
         </div>
         
         

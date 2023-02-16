@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Link } from 'react-router-dom';
+import { gettodos, supabase } from './supabase/supabaseClient';
 
 interface Todo {
   id: number;
@@ -13,10 +14,18 @@ const TodoList: React.FC = () => {
   const [newTodo, setNewTodo] = useState('');
   const [newDeadline, setNewDeadline] = useState('');
 
+  useEffect(()=>{
+    async function gettodos2() {
+    const {data,error}= await gettodos();
+    console.log(data)
+    console.log(error)
+    }
+    gettodos2();
+  },[])
 
   const getTimeRemaining = (deadline: string) => {
     const now = new Date();
-    const deadlineArray = deadline.split("/");
+    const deadlineArray = deadline.split(".");
     const deadlineDate = new Date(
       parseInt(deadlineArray[2]),
       parseInt(deadlineArray[1]) - 1,
