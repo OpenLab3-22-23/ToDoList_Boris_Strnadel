@@ -3,7 +3,7 @@ import { useAuth } from "./auth/Auth";
 import "./App.css";
 import TodoList from "./ToDoList";
 import OptionsPage from "./Options";
-
+import Refresher from "./refresher";
 
 export default function LandingPage(): JSX.Element {
 
@@ -20,7 +20,7 @@ export default function LandingPage(): JSX.Element {
          <h1 className="Title">To Do List</h1>
          </div>  
         </div>         
-        <TodoList />
+        <Refresher/>
         
         <button className="logout" onClick={handleLogOut}>Odhlásiť sa</button>
         <button className="options"  >Options</button>

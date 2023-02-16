@@ -105,7 +105,7 @@ const TodoList: React.FC = () => {
             <span className='TodoText'> 
               {todo.text} :
             </span>
-            <span className='Deadlinetext'>{getTimeRemaining(todo.deadline).days} days, {getTimeRemaining(todo.deadline).hours} hours, {getTimeRemaining(todo.deadline).minutes} minutes</span>
+            <span className='Deadlinetext'>{getTimeRemaining(todo.deadline).days} days, {getTimeRemaining(todo.deadline).hours} hours, {getTimeRemaining(todo.deadline).minutes} minutes and {getTimeRemaining(todo.deadline).seconds} seconds</span>
             <button className='delbutt' onClick={() => deleteTodo(todo.id)}>X</button>
             </div>
           </li>
