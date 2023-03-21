@@ -25,25 +25,31 @@ const TodoList: React.FC = () => {
 
   const getTimeRemaining = (deadline: string) => {
     const now = new Date();
-    const deadlineArray = deadline.split(".");
-    const deadlineDate = new Date(
-      parseInt(deadlineArray[2]),
-      parseInt(deadlineArray[1]) - 1,
-      parseInt(deadlineArray[0])
-    );
+    const [dayStr, monthStr, yearStr] = deadline.split(".");
+    const deadlineDate = new Date(`${monthStr} ${dayStr}, ${yearStr}`);
     const timeDifference = deadlineDate.getTime() - now.getTime();
-
-    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+  
+    const totalSeconds = timeDifference / 1000;
+    const totalMinutes = totalSeconds / 60;
+    const totalHours = totalMinutes / 60;
+    const days = Math.floor(totalHours / 24);
+    const hours = Math.floor(totalHours % 24);
+    const minutes = Math.floor(totalMinutes % 60);
+    const seconds = Math.floor(totalSeconds % 60);
+  
+    const deadlineString = deadlineDate.toLocaleDateString(undefined, {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric'
+    });
   
     return {
       total: timeDifference,
-      days: days,
-      hours: hours,
-      minutes: minutes,
-      seconds: seconds
+      days,
+      hours,
+      minutes,
+      seconds,
+      deadline: deadlineString
     };
   };
 
@@ -91,7 +97,7 @@ const TodoList: React.FC = () => {
             <input
           className='InputToDeadline'
           type="text"
-          placeholder="DD/MM/YYYY"
+          placeholder="DD.MM.YYYY"
           onChange={handleDeadlineChange}
           value={newDeadline}
         />
