@@ -7,19 +7,20 @@ const supabaseAnonKey = import.meta.env.VITE_SUPA_KEY;
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-export async function gettodos() {
-    const { data, error } = await supabase
-  .from('todotasks')
-  .select()
-
-  return { data, error };
-}
-
-const { error } = await supabase
-  .from('todotasks')
-  .insert({  text: newTodo, completed: false, deadline: newDeadline  })
 
 
 //urobiť metodu na vytvaranie taskov 
 //vytvoriť useeffect v ktorom sa načitaju všetky tasky z databazy
 
+export async function uploadTodo(todotext: string, deadline: string){
+  const { error } = await supabase
+  .from('todotasks')
+  .insert({  taskname: todotext, deadline: deadline  })
+}
+
+export async function deleteTodo(id: number){
+  const { error } = await supabase
+  .from('todotasks')
+  .delete()
+  .eq('id', id)
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
-import { gettodos, supabase } from './supabase/supabaseClient';
+import { uploadTodo, supabase } from './supabase/supabaseClient';
 
 interface Todo {
   id: number;
@@ -14,14 +14,7 @@ const TodoList: React.FC = () => {
   const [newTodo, setNewTodo] = useState('');
   const [newDeadline, setNewDeadline] = useState('');
 
-  useEffect(()=>{
-    async function gettodos2() {
-    const {data,error}= await gettodos();
-    console.log(data)
-    console.log(error)
-    }
-    gettodos2();
-  },[])
+  
 
   const getTimeRemaining = (deadline: string) => {
     const now = new Date();
@@ -60,6 +53,8 @@ const TodoList: React.FC = () => {
     setTodos([...todos, { text: newTodo, completed: false, id: todos.length +1 ,deadline: newDeadline}]);
     setNewTodo('');
     setNewDeadline('');
+    uploadTodo(newTodo, newDeadline);
+   
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -75,8 +70,9 @@ const TodoList: React.FC = () => {
     setTodos(newTodos);
   };
 
-  const deleteTodo = (id: number) => {
+  async function deleteTodo (id: number) {
     setTodos(todos.filter(todo => todo.id !== id));
+    await deleteTodofromdb(id);
   };
 
 
@@ -104,6 +100,7 @@ const TodoList: React.FC = () => {
         </div>
         <div>
             <button className='Addbutton' type="submit">Add +</button>
+            
         </div>
         
       </form>
@@ -128,7 +125,10 @@ const TodoList: React.FC = () => {
       </ul>
     </div>
     
-  );
-};
+  );console.log(todos);
+  
+}; 
 
 export default TodoList;
+
+//uploadTodo(newTodo, newDeadline);
