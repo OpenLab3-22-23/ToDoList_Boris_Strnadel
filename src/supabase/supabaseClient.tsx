@@ -18,7 +18,7 @@ export async function uploadTodo(todotext: string, deadline: string){
   .insert({  taskname: todotext, deadline: deadline  })
 }
 
-export async function deleteTodo(id: number){
+export async function deleteTodofromdb(id: number){
   const { error } = await supabase
   .from('todotasks')
   .delete()

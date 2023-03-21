@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
-import { uploadTodo, supabase } from './supabase/supabaseClient';
+import { uploadTodo,deleteTodofromdb,  supabase } from './supabase/supabaseClient';
+
 
 interface Todo {
   id: number;
@@ -125,7 +126,7 @@ const TodoList: React.FC = () => {
       </ul>
     </div>
     
-  );console.log(todos);
+  );  
   
 }; 
 
